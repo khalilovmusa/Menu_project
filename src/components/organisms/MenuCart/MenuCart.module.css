@@ -1,0 +1,63 @@
+.menu_cart_wrapper{
+    width: 100%;
+    height: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    background:rgba(128, 134, 255, 0.67);
+    color: #fff;
+    font-weight: 500;
+
+    border-radius: 30px;
+    padding: 10px 8px;
+    margin-top: 1%;
+}
+
+.menu_text{
+    font-size: 30px;
+}
+
+.menu_description{
+    color: lightgray;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 3px;
+    letter-spacing: .1rem;
+}
+
+.menu_cart_icon_wrapper{
+    position: relative;
+    width: 200px;         /* Make sure it fills the container */
+    height: 200px; 
+}
+
+.menu_cart_icon{
+    position: absolute; /* 🛠️ Absolute positioning inside relative parent */
+    bottom: -3vh;           /* Align to bottom */
+    right: -2vw;  
+    height: 100%;
+    width: auto;
+}
+
+.goto_cart_btn{
+    position: absolute;
+    right: 1vw;
+    bottom: 1vh;
+
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 50%;
+
+    background: #fff;
+    cursor: pointer;
+}
+
+.menu_cart_btn{
+    position: absolute;
+    right: 1vw;
+    bottom: 1vh; 
+}

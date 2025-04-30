@@ -5,32 +5,32 @@ import Btn from '@components/atoms/general/Btn'
 import styles from './MenuCart.module.css'
 
 interface MenuCartProps {
-   HeaderText: string
-   SubHeaderText: string
-   CartIcon: string
-   BtnIcon: string
+   headerText: string
+   subHeaderText: string
+   cartIcon: string
+   btnIcon: string
 }
 
 const MenuCart: FC<MenuCartProps> = ({
-   HeaderText,
-   SubHeaderText,
-   CartIcon,
-   BtnIcon,
+   headerText,
+   subHeaderText,
+   cartIcon,
+   btnIcon,
 }) => {
    return (
       <div className={styles.menu_cart_wrapper}>
          <div>
-            <p className={styles.menu_text}>{HeaderText}</p>
-            <p className={styles.menu_description}>{SubHeaderText}</p>
+            <p className={styles.menu_text}>{headerText}</p>
+            <p className={styles.menu_description}>{subHeaderText}</p>
          </div>
          <div className={styles.menu_cart_icon_wrapper}>
-            <img className={styles.menu_cart_icon} src={CartIcon} />
+            <img className={styles.menu_cart_icon} src={cartIcon} />
          </div>
          <Btn
             className={styles.menu_cart_btn}
             onClick={() => console.log('Hello')}
          >
-            <img src={BtnIcon} />
+            <img src={btnIcon} />
          </Btn>
       </div>
    )

@@ -30,22 +30,22 @@
 
 .menu_cart_icon_wrapper{
     position: relative;
-    width: 200px;         /* Make sure it fills the container */
+    width: 200px;
     height: 200px; 
 }
 
 .menu_cart_icon{
-    position: absolute; /* 🛠️ Absolute positioning inside relative parent */
-    bottom: -3vh;           /* Align to bottom */
-    right: -2vw;  
+    position: absolute; 
+    bottom: -10%;           
+    right: -15%;  
     height: 100%;
     width: auto;
 }
 
 .goto_cart_btn{
     position: absolute;
-    right: 1vw;
-    bottom: 1vh;
+    right: 2%;
+    bottom: 1%;
 
     height: 30px;
     width: 30px;
@@ -58,6 +58,6 @@
 
 .menu_cart_btn{
     position: absolute;
-    right: 1vw;
-    bottom: 1vh; 
+    right: 2%;
+    bottom: 3%; 
 }

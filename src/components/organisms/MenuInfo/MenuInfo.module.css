@@ -3,106 +3,7 @@
     flex-direction: column;
     flex-shrink: 0;
 
-    width: 40vw;
-}
-
-/* .menu_header{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  width: 100%;
-  height: 60px;
-  border: none;
-  border-radius: 50px;
-  padding: 5px 8px;
-
-  background: #fff;
-  color: black;
-}
-
-.company_container{
-  display: flex;
-  flex-direction: row;
-  width: 80%;
-}
-
-.company_logo{
-  height: 100%;
-  margin-right: 20px;
-}
-
-.company_name{
-  font-size: 28px;
-  font-weight: 600;
-}
-
-.company_motto{
-  color: gray;
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.company_second_logo{
-  height: 100%;
-} */
-
-.menu_cart_wrapper{
-    width: 100%;
-    height: 150px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-
-    background:rgba(128, 134, 255, 0.67);
-    color: #fff;
-    font-weight: 500;
-
-    border-radius: 30px;
-    padding: 10px 8px;
-    margin-top: 1%;
-}
-
-.menu_text{
-    font-size: 30px;
-}
-
-.menu_description{
-    color: lightgray;
-    font-size: 14px;
-    font-weight: 400;
-    margin-top: 3px;
-    letter-spacing: .1rem;
-}
-
-.menu_cart_icon_wrapper{
-    position: relative;
-    width: 200px;         /* Make sure it fills the container */
-    height: 200px; 
-}
-
-.menu_cart_icon{
-    position: absolute; /* 🛠️ Absolute positioning inside relative parent */
-    bottom: -3vh;           /* Align to bottom */
-    right: -2vw;  
-    height: 100%;
-    width: auto;
-}
-
-.goto_cart_btn{
-    position: absolute;
-    right: 1vw;
-    bottom: 1vh;
-
-    height: 30px;
-    width: 30px;
-    border: none;
-    border-radius: 50%;
-
-    background: #fff;
-    cursor: pointer;
+    width: 110%;
 }
 
 @media(max-width: 1300px){
@@ -113,15 +14,15 @@
 
 @media (max-width: 768px) {
     .menu_wrapper {
-      width: 60vw;      /* Take almost full width on mobile */
-      min-width: 380px; /* Remove min-width so it can shrink nicely */
-      padding: 10px;    /* Give some breathing space */
+      width: 60%;      
+      min-width: 380px; 
+      padding: 10px;    
     }
   
     .menu_header {
-      flex-direction: row; /* Stack logo and text vertically */
+      flex-direction: row; 
       align-items: center;
-      height: auto;            /* Let it grow naturally */
+      height: auto;       
     }
   
     .company_container {
@@ -133,11 +34,11 @@
   
     .company_logo {
       margin-bottom: 10px;
-      height: 50px; /* Reduce logo size */
+      height: 50px; 
     }
   
     .company_name {
-      font-size: 22px; /* Slightly smaller font */
+      font-size: 22px; 
     }
   
     .company_motto {
@@ -145,7 +46,7 @@
     }
   
     .company_second_logo {
-      height: 60px; /* Smaller second logo */
+      height: 60px; 
       margin-top: 10px;
     }
   

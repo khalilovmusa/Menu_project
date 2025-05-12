@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+import { useNavigate } from 'react-router'
 
 import Btn from '@components/atoms/general/Btn'
 
@@ -17,6 +18,7 @@ const MenuCart: FC<MenuCartProps> = ({
    cartIcon,
    btnIcon,
 }) => {
+   const navigate = useNavigate()
    return (
       <div className={styles.menu_cart_wrapper}>
          <div>
@@ -28,7 +30,7 @@ const MenuCart: FC<MenuCartProps> = ({
          </div>
          <Btn
             className={styles.menu_cart_btn}
-            onClick={() => console.log('Hello')}
+            onClick={() => navigate('/categories')}
          >
             <img src={btnIcon} />
          </Btn>

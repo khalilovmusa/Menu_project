@@ -37,3 +37,27 @@
 .company_second_logo{
     height: 100%;
 }
+
+@media (max-width: 768px) {  
+.company_container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.company_logo{
+    height: 50px;
+}
+
+.company_name{
+    font-size: 22px;
+}
+
+.company_motto{
+    font-size: 14px;
+}
+
+.company_second_logo{
+    height: 50px;
+    border-radius: 50%;
+}
+}

@@ -14,12 +14,12 @@ const MenuHeader: FC<MenuHeaderProps> = ({ companyLogo, secondLogo }) => {
             <div>
                <img className={styles.company_logo} src={companyLogo} />
             </div>
-            <div>
-               <p className={styles.company_name}>JustDevHints!!!</p>
-               <p className={styles.company_motto}>front-end developer</p>
+            <div className={styles.company_name_wrapper}>
+               <p className={styles.company_name}>JustDevHints!!</p>
+               <p className={styles.company_motto}>restaurant menu</p>
             </div>
          </div>
-         <div>
+         <div className={styles.second_logo_wrapper}>
             <img className={styles.company_second_logo} src={secondLogo} />
          </div>
       </div>

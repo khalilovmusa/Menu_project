@@ -1,65 +1,11 @@
 .menu_wrapper{
     display: flex;
     flex-direction: column;
-    flex-shrink: 0;
-
     width: 100%;
 }
 
-@media(max-width: 1300px){
+@media (min-width: 769px) and (max-width: 1300px){
     .menu_wrapper{
         min-width: 400px;
     }
 }
-
-@media (max-width: 768px) {
-    .menu_wrapper {
-      width: 60%;      
-      min-width: 380px; 
-      padding: 10px;    
-    }
-  
-    .menu_header {
-      flex-direction: row; 
-      align-items: center;
-      height: auto;       
-    }
-  
-    .company_container {
-      flex-direction: row;
-      align-items: center;
-      width: 100%;
-      text-align: center;
-    }
-  
-    .company_logo {
-      margin-bottom: 10px;
-      height: 50px; 
-    }
-  
-    .company_name {
-      font-size: 22px; 
-    }
-  
-    .company_motto {
-      font-size: 14px;
-    }
-  
-    .company_second_logo {
-      height: 60px; 
-      margin-top: 10px;
-    }
-  
-    .menu_cart_wrapper {
-      flex-direction: column;
-      height: auto;
-      gap: 15px;
-      padding: 15px;
-    }
-  
-    .menu_cart_icon {
-      height: 200px;
-      width: auto;
-    }
-  }
-  

@@ -1,0 +1,51 @@
+.best_restaurants_wrapper{
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   padding: 20px;
+}
+
+.best_restaurants_header{
+   font-size: 30px;
+   margin-left: 2%;
+}
+
+.best_restaurants_list{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   flex-direction: row;
+   flex-wrap: wrap;
+   gap: 20px;
+   padding: 20px;
+   list-style: none;
+}
+
+.best_restaurant_item{
+   background: #fff;
+   color: black;
+   border-radius: 20px;
+   padding: 10px;
+}
+
+.best_restaurant_bannerImg{
+   height: 300px;
+   width: 300px;
+   border-radius: 20px;
+   margin-bottom: 10px;
+   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, 
+               rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+   cursor: pointer;
+}
+
+.best_restaurant_item{
+   font-size: 23px;
+   font-weight: bold;
+}
+
+.best_restaurant_distance{
+   font-size: 16px;  
+   color: #3E3E3E;
+}

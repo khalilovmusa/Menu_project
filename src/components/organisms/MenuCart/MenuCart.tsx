@@ -20,7 +20,10 @@ const MenuCart: FC<MenuCartProps> = ({
 }) => {
    const navigate = useNavigate()
    return (
-      <div className={styles.menu_cart_wrapper}>
+      <div
+         className={styles.menu_cart_wrapper}
+         onClick={() => navigate('/categories')}
+      >
          <div>
             <p className={styles.menu_text}>{headerText}</p>
             <p className={styles.menu_description}>{subHeaderText}</p>
@@ -28,10 +31,7 @@ const MenuCart: FC<MenuCartProps> = ({
          <div className={styles.menu_cart_icon_wrapper}>
             <img className={styles.menu_cart_icon} src={cartIcon} />
          </div>
-         <Btn
-            className={styles.menu_cart_btn}
-            onClick={() => navigate('/categories')}
-         >
+         <Btn className={styles.menu_cart_btn}>
             <img src={btnIcon} />
          </Btn>
       </div>

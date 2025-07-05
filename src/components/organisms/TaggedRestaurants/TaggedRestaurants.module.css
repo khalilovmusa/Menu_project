@@ -1,4 +1,4 @@
-.f_restaurants_wrapper{
+.tagged_restaurants_wrapper{
    width: 100%;
    height: 100%;
    display: flex;
@@ -7,24 +7,12 @@
    padding: 20px;
 }
 
-.fa_restaurants_header{
+.tagged_restaurants_header{
    font-size: 30px;
    margin-left: 2%;
 }
 
-/* .fa_restaurants_list_wrapper{
-   width: 100%;
-   display: flex;
-   justify-content: center;
-   flex-direction: row;
-   flex-wrap: wrap;
-   align-self: flex-start;
-   gap: 20px;
-   padding: 20px;
-   list-style: none;
-} */
-
-.fa_restaurants_list{
+.tagged_restaurants_list{
    width: 100%;
    display: flex;
    justify-content: center;
@@ -36,14 +24,14 @@
    list-style: none;
 }
 
-.fa_restaurant_item{
+.tagged_restaurant_item{
    background: #fff;
    color: black;
    border-radius: 20px;
    padding: 10px;
 }
 
-.fa_restaurant_banner{
+.tagged_restaurant_banner{
    height: 300px;
    width: 300px;
    border-radius: 20px;
@@ -53,12 +41,12 @@
    cursor: pointer;
 }
 
-.fa_restaurant_item{
+.tagged_restaurant_item{
    font-size: 23px;
    font-weight: bold;
 }
 
-.fa_restaurant_distance{
+.tagged_restaurant_distance{
    font-size: 16px;  
    color: #3E3E3E;
 }

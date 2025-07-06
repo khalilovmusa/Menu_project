@@ -1,19 +1,30 @@
 import { type FC } from 'react'
 
-import TaggedRestaurants from '../TaggedRestaurants/TaggedRestaurants'
+import { dummyRestaurants } from '@store/dummyRestaurants/dummyRestaurants'
 
-import styles from './RestaurantsPage.module.css'
+import TaggedRestaurants from '../TaggedRestaurants/TaggedRestaurants'
+import RestaurantsPageNavbar from '../RestaurantsPageNavbar/RestaurantsPageNavbar'
 
 const RestaurantsPage: FC = () => {
    return (
       <div>
-         <h1 className={styles.restaurants_header}>Restaurant list</h1>
-         {/* <BestRestaurants />
-         <FamilyRestaurant />
-         <NationalRestaurants /> */}
-         <TaggedRestaurants restaurantTags={['FAMILY']} />
-         <TaggedRestaurants restaurantTags={['BEST']} />
-         <TaggedRestaurants restaurantTags={['national']} />
+         <RestaurantsPageNavbar />
+         <TaggedRestaurants
+            restaurantTags={['FAMILY']}
+            restaurantsData={dummyRestaurants}
+         />
+         <TaggedRestaurants
+            restaurantTags={['BEST']}
+            restaurantsData={dummyRestaurants}
+         />
+         <TaggedRestaurants
+            restaurantTags={['national']}
+            restaurantsData={dummyRestaurants}
+         />
+         <TaggedRestaurants
+            restaurantTags={['national', 'best']}
+            restaurantsData={dummyRestaurants}
+         />
       </div>
    )
 }

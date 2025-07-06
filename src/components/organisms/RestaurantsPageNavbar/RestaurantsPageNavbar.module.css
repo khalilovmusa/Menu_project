@@ -1,0 +1,76 @@
+.restaurants_header{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   padding: 1% 2.5%;
+   align-items: center;
+}
+
+.header_location_wrapper{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+.geo_location_wrapper{
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   border: none;
+   background: red;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+}
+
+.geo_location_icon{
+   height: 25px;
+}
+
+.current_location_text{
+   font-size: 20px;
+   margin-left: 10px;
+   font-weight: bold;
+}
+
+.three_dots_wrapper{
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   border: none;
+   background: lightgray;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+   position: relative;
+}
+
+.three_dots_icon{
+   height: 20px;
+}
+
+.three_dots_dropdown{
+   width: 300%;
+   position: absolute;
+   right: -80%;
+   bottom: -130%;
+}
+
+.three_dots_ul{
+   list-style: none;
+}
+
+.three_dots_ul li{
+   padding: 2px 10px;
+   background: white;
+   color: black;
+   border-bottom: 1px solid gray;
+}
+
+.three_dots_ul li:hover{
+   background: lightgray;
+   transition: 0.25s;
+}
+

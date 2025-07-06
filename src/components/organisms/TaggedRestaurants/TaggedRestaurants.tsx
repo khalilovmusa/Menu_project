@@ -1,16 +1,20 @@
 import { useEffect, useState, type FC } from 'react'
 import { useNavigate } from 'react-router'
 
-import { dummyRestaurants as TaggedRestaurantData } from '@store/dummyRestaurants/dummyRestaurants'
 import distance_icon from '@assets/distance_icon.svg'
+import type { RestaurantTypes } from 'types/dummyRestaurantsTypes'
 
 import styles from './TaggedRestaurants.module.css'
 
 interface TaggedRestaurantProps {
    restaurantTags: string[]
+   restaurantsData: RestaurantTypes[]
 }
 
-const TaggedRestaurants: FC<TaggedRestaurantProps> = ({ restaurantTags }) => {
+const TaggedRestaurants: FC<TaggedRestaurantProps> = ({
+   restaurantTags,
+   restaurantsData: TaggedRestaurantData,
+}) => {
    let tagEmoji
    const navigate = useNavigate()
    const [taggedRestaurantDataArr, setTaggedRestaurantDataArr] = useState<
@@ -29,7 +33,7 @@ const TaggedRestaurants: FC<TaggedRestaurantProps> = ({ restaurantTags }) => {
          },
       )
       setTaggedRestaurantDataArr(filteredTagRestaurantsData)
-   }, [restaurantTags])
+   }, [restaurantTags, TaggedRestaurantData])
 
    switch (restaurantTags[0].toLowerCase()) {
       case 'family':
@@ -47,8 +51,10 @@ const TaggedRestaurants: FC<TaggedRestaurantProps> = ({ restaurantTags }) => {
    }
    const shownTag =
       restaurantTags.length > 1
-         ? restaurantTags.sort().join('-').toLowerCase()
-         : tagEmoji + ' ' + restaurantTags[0].toLowerCase()
+         ? '#️⃣ ' +
+           restaurantTags.sort().join(', ').toLowerCase() +
+           ' tagged restaurants'
+         : tagEmoji + ' ' + restaurantTags[0].toLowerCase() + ' restaurants'
    return (
       <div className={styles.tagged_restaurants_wrapper}>
          <h2 className={styles.tagged_restaurants_header}>{shownTag}</h2>

@@ -19,6 +19,8 @@
     width: 80%;
 }
 .company_logo{
+    border: none;
+    border-radius: 50%;
     height: 100%;
     margin-right: 20px;
 }

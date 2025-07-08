@@ -1,10 +1,13 @@
-import type { FC } from 'react'
-import { useParams } from 'react-router'
+import { useEffect, type FC } from 'react'
+import { useNavigate, useParams } from 'react-router'
+import { useDispatch, useSelector } from 'react-redux'
 
 import companyLogo from '@assets/companyLogo.png'
 import bowlCartoon from '@assets/BowlCartoon.svg'
 import foodLogo from '@assets/FoodLogo.svg'
 import btnArrow from '@assets/arrow-up-right.svg'
+import type { AppDispatch, RootState } from '@store/store'
+import { selectById } from '@store/slices/restaurantsSlice'
 
 import MenuHeader from '../MenuHeader/MenuHeader'
 import MenuCart from '../MenuCart/MenuCart'
@@ -12,13 +15,23 @@ import MenuCart from '../MenuCart/MenuCart'
 import styles from './MenuInfo.module.css'
 
 const MenuInfo: FC = () => {
-   const { restaurantName } = useParams()
+   const { restaurant, id } = useParams()
+   const navigate = useNavigate()
+   const dispatch = useDispatch<AppDispatch>()
+   const selectedRestaurant = useSelector(
+      (state: RootState) => state.restaurants.selected,
+   )
 
+   useEffect(() => {
+      if (id) {
+         dispatch(selectById(Number(id)))
+      }
+   }, [id, dispatch])
    return (
       <div className={styles.menu_wrapper}>
          <MenuHeader
-            companyLogo={companyLogo}
-            restaurantName={restaurantName ?? 'Restaurant_name'}
+            companyLogo={selectedRestaurant?.bannerImg ?? companyLogo}
+            restaurant={restaurant ?? 'Restaurant-name'}
             secondLogo={foodLogo}
          />
          <MenuCart
@@ -27,6 +40,12 @@ const MenuInfo: FC = () => {
             headerText={'Menu'}
             subHeaderText={'Delicious food you chose!'}
          />
+         <button
+            className={styles.return_back_button}
+            onClick={() => navigate('/')}
+         >
+            Return to the restaurants page
+         </button>
       </div>
    )
 }

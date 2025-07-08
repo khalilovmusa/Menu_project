@@ -1,4 +1,5 @@
 import { useState, type FC } from 'react'
+import { useNavigate } from 'react-router'
 
 import geo_location from '@assets/geo-alt-fill.svg'
 import three_dots from '@assets/three-dots.svg'
@@ -8,6 +9,13 @@ import styles from './RestaurantsPageNavbar.module.css'
 
 const RestaurantsPageNavbar: FC = () => {
    const [isOpen, setIsOpen] = useState(false)
+   const navigate = useNavigate()
+
+   const handleSelect = (option: string): void => {
+      const directoryArr = option.toLowerCase().split(' ')
+      const directory = directoryArr.join('_')
+      navigate(directory)
+   }
    return (
       <div className={styles.restaurants_header}>
          <div className={styles.header_location_wrapper}>
@@ -26,7 +34,7 @@ const RestaurantsPageNavbar: FC = () => {
             {isOpen && (
                <Dropdown
                   options={['Mobile App', 'About Us']}
-                  onSelect={(option) => console.log(option + ' selected')}
+                  onSelect={(option) => handleSelect(option)}
                />
             )}
          </div>

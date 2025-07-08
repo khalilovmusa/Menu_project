@@ -3,17 +3,17 @@ import type { FC } from 'react'
 import styles from './MenuHeader.module.css'
 
 interface MenuHeaderProps {
-   restaurantName: string | 'restaurant_name'
+   restaurant: string | 'restaurant-name'
    companyLogo: string
    secondLogo: string
 }
 
 const MenuHeader: FC<MenuHeaderProps> = ({
-   restaurantName,
+   restaurant,
    companyLogo,
    secondLogo,
 }) => {
-   console.log(restaurantName?.split(' '))
+   console.log(restaurant?.split(' '))
    return (
       <div className={styles.menu_header}>
          <div className={styles.company_container}>
@@ -22,11 +22,11 @@ const MenuHeader: FC<MenuHeaderProps> = ({
             </div>
             <div className={styles.company_name_wrapper}>
                <p className={styles.company_name}>
-                  {restaurantName?.split(' ').length > 2
-                     ? restaurantName?.split(' ')[0] +
+                  {restaurant?.split(' ').length > 2
+                     ? restaurant?.split(' ')[0] +
                        ' ' +
-                       restaurantName?.split(' ')[1]
-                     : restaurantName}
+                       restaurant?.split(' ')[1]
+                     : restaurant}
                </p>
                <p className={styles.company_motto}>restaurant menu</p>
             </div>

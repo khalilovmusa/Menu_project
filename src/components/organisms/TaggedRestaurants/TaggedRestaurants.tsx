@@ -62,8 +62,10 @@ const TaggedRestaurants: FC<TaggedRestaurantProps> = ({
             {taggedRestaurantDataArr.map((restaurant) => (
                <li
                   className={styles.tagged_restaurant_item}
-                  key={restaurant.restaurantName}
-                  onClick={() => navigate(`/${restaurant.restaurantName}`)}
+                  key={restaurant.id}
+                  onClick={() =>
+                     navigate(`/${restaurant.restaurant}/${restaurant.id}`)
+                  }
                >
                   <img
                      alt="Family_restaurant_BannerImg"
@@ -71,7 +73,7 @@ const TaggedRestaurants: FC<TaggedRestaurantProps> = ({
                      src={restaurant.bannerImg}
                   />
                   <div>
-                     {restaurant.restaurantName}
+                     {restaurant.restaurant}
                      <div className={styles.tagged_restaurant_distance}>
                         <img alt="distance_icn" src={distance_icon} />
                         {restaurant.distance + ' km away'}

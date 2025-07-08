@@ -7,6 +7,8 @@ import MenuCategories from '@components/organisms/MenuCategories/MenuCategories.
 import CategoryMeals from '@components/organisms/CategoryMeals/CategoryMeals.tsx'
 import MenuInfo from '@components/organisms/MenuInfo/MenuInfo.tsx'
 import { store } from '@store/store.ts'
+import MobileApp from '@components/organisms/MobileAppPage/MobileApp.tsx'
+import AboutUs from '@components/organisms/AboutUsPage/AboutUsPage.tsx'
 
 import App from './App.tsx'
 
@@ -15,12 +17,14 @@ createRoot(document.getElementById('root')!).render(
       <BrowserRouter>
          <Routes>
             <Route element={<App />} path="/" />
-            <Route element={<MenuInfo />} path="/:restaurantName" />
+            <Route element={<MenuInfo />} path="/:restaurant/:id" />
             <Route element={<MenuCategories />} path="/categories" />
             <Route
                element={<CategoryMeals />}
                path="/categories/:categoryName"
             />
+            <Route element={<MobileApp />} path="/mobile_app" />
+            <Route element={<AboutUs />} path="/about_us" />
          </Routes>
       </BrowserRouter>
    </Provider>,

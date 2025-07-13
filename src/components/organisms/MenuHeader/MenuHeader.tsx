@@ -13,7 +13,6 @@ const MenuHeader: FC<MenuHeaderProps> = ({
    companyLogo,
    secondLogo,
 }) => {
-   console.log(restaurant?.split(' '))
    return (
       <div className={styles.menu_header}>
          <div className={styles.company_container}>

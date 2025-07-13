@@ -1,9 +1,8 @@
 import { type FC } from 'react'
 
 import { dummyRestaurants } from '@store/dummyRestaurants/dummyRestaurants'
-
-import TaggedRestaurants from '../TaggedRestaurants/TaggedRestaurants'
-import RestaurantsPageNavbar from '../RestaurantsPageNavbar/RestaurantsPageNavbar'
+import TaggedRestaurants from '@components/organisms/TaggedRestaurants/TaggedRestaurants'
+import RestaurantsPageNavbar from '@components/organisms/RestaurantsPageNavbar/RestaurantsPageNavbar'
 
 const RestaurantsPage: FC = () => {
    return (

@@ -29,23 +29,25 @@ const MenuInfo: FC = () => {
    }, [id, dispatch])
    return (
       <div className={styles.menu_wrapper}>
-         <MenuHeader
-            companyLogo={selectedRestaurant?.bannerImg ?? companyLogo}
-            restaurant={restaurant ?? 'Restaurant-name'}
-            secondLogo={foodLogo}
-         />
-         <MenuCart
-            btnIcon={btnArrow}
-            cartIcon={bowlCartoon}
-            headerText={'Menu'}
-            subHeaderText={'Delicious food you chose!'}
-         />
-         <button
-            className={styles.return_back_button}
-            onClick={() => navigate('/')}
-         >
-            Return to the restaurants page
-         </button>
+         <div>
+            <MenuHeader
+               companyLogo={selectedRestaurant?.bannerImg ?? companyLogo}
+               restaurant={restaurant ?? 'Restaurant-name'}
+               secondLogo={foodLogo}
+            />
+            <MenuCart
+               btnIcon={btnArrow}
+               cartIcon={bowlCartoon}
+               headerText={'Menu'}
+               subHeaderText={'Delicious food you chose!'}
+            />
+            <button
+               className={styles.return_back_button}
+               onClick={() => navigate('/')}
+            >
+               Return to the restaurants page
+            </button>
+         </div>
       </div>
    )
 }

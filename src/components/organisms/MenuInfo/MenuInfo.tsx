@@ -8,6 +8,7 @@ import foodLogo from '@assets/FoodLogo.svg'
 import btnArrow from '@assets/arrow-up-right.svg'
 import type { AppDispatch, RootState } from '@store/store'
 import { selectById } from '@store/slices/restaurantsSlice'
+import StarRating from '@components/molecules/StarRating/StarRating'
 
 import MenuHeader from '../MenuHeader/MenuHeader'
 import MenuCart from '../MenuCart/MenuCart'
@@ -29,6 +30,7 @@ const MenuInfo: FC = () => {
    }, [id, dispatch])
    return (
       <div className={styles.menu_wrapper}>
+         <StarRating />
          <div>
             <MenuHeader
                companyLogo={selectedRestaurant?.bannerImg ?? companyLogo}

@@ -1,0 +1,16 @@
+.stars_wrapper{
+   margin-bottom: 3%;
+}
+
+.stars_header{
+   display: flex;
+   justify-content: center;
+}
+
+.active {
+   color: #fff700
+}
+
+.inactive {
+   color: #000
+}

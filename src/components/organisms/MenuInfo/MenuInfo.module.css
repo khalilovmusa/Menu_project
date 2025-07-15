@@ -23,9 +23,9 @@
     width: 100%;
 }
 
-@media (min-width: 769px) and (max-width: 1300px){
+@media (min-width: 769px) and (max-width: 1200px){
     .menu_wrapper{
-        min-width: 350px;
+        min-width: 300px;
         width: 90%;
     }
 }

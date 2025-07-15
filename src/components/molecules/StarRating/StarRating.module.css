@@ -8,7 +8,8 @@
 }
 
 .active {
-   color: #fff700
+   color: #fff700;
+  filter: drop-shadow(0 0 6px #fff700) drop-shadow(0 0 10px #fff700)
 }
 
 .inactive {

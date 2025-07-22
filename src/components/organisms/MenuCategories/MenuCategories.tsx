@@ -61,56 +61,23 @@
 // export default MenuCategories
 
 import * as React from 'react'
-import { useParams } from 'react-router'
 
-import { useGetMealsByCategoryQuery } from '@services/mealsCategoryAPI'
+import { useGetCategoriesQuery } from '@services/mealsCategoryAPI'
 
-import type { Meal } from '../../../services/mealsCategoryAPI'
-// import RestaurantsPageNavbar from '../RestaurantsPageNavbar/RestaurantsPageNavbar'
-
-// interface CategoryMealsProps {
-//    category: string
-// }
-
-// { category }: CategoryMealsProps
+import RestaurantsPageNavbar from '../RestaurantsPageNavbar/RestaurantsPageNavbar'
 
 const MenuCategories = (): React.JSX.Element => {
-   const params = useParams<{ categoryName?: string }>()
-   const categoryName = params.categoryName ?? ''
+   const categories = useGetCategoriesQuery()
+   const categoriesData = categories.currentData
 
-   const { data, error, isLoading } = useGetMealsByCategoryQuery(
-      categoryName ?? '',
-   )
+   console.log(categories)
 
-   if (isLoading) {
-      return <div>Loading meals...</div>
-   }
-
-   if (error) {
-      return <div>Oops, something went wrong!</div>
-   }
-   console.log(categoryName)
    return (
       <div>
-         <ul style={{ padding: 0 }}>
-            {data?.map((meal: Meal) => (
-               <li
-                  key={meal.idMeal}
-                  style={{
-                     listStyle: 'none',
-                     textAlign: 'center',
-                     marginBottom: '2rem',
-                     maxWidth: '400px',
-                     marginInline: 'auto',
-                  }}
-               >
-                  <img
-                     alt={meal.strMeal}
-                     src={meal.strMealThumb}
-                     style={{ width: '100px', borderRadius: '10px' }}
-                  />
-                  <h3>{meal.strMeal}</h3>
-               </li>
+         <RestaurantsPageNavbar />
+         <ul>
+            {categoriesData?.map((category) => (
+               <li key={category.idCategory}>{category.strCategory}</li>
             ))}
          </ul>
       </div>

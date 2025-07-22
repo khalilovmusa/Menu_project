@@ -10,6 +10,13 @@ export interface Meal {
    strYoutube?: string
 }
 
+export interface Category {
+   idCategory: string
+   strCategory: string
+   strCategoryThumb: string
+   strCategoryDescription: string
+}
+
 export const mealsCategoryAPI = createApi({
    reducerPath: 'mealsAPI',
    baseQuery: fetchBaseQuery({
@@ -24,7 +31,16 @@ export const mealsCategoryAPI = createApi({
          query: (id) => `lookup.php?i=${id}`,
          transformResponse: (response: { meals: Meal[] }) => response.meals[0],
       }),
+      getCategories: builder.query<Category[], void>({
+         query: () => `categories.php`,
+         transformResponse: (response: { categories: Category[] }) =>
+            response.categories,
+      }),
    }),
 })
 
-export const { useGetMealsByCategoryQuery } = mealsCategoryAPI
+export const {
+   useGetMealsByCategoryQuery,
+   useGetMealItemQuery,
+   useGetCategoriesQuery,
+} = mealsCategoryAPI

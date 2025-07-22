@@ -1,57 +1,56 @@
-import { useEffect, useState, type FC } from 'react'
-import axios from 'axios'
+import * as React from 'react'
 import { useParams } from 'react-router'
 
-type Meal = {
-   idMeal: string
-   strMeal: string
-   strMealThumb: string
-}
+import { useGetMealsByCategoryQuery } from '@services/mealsCategoryAPI'
 
-const CategoryMeals: FC = () => {
-   const { categoryName } = useParams()
-   const [meals, setMeals] = useState<Meal[] | null>(null)
-   const [isLoading, setIsLoading] = useState(true)
-   const [error, setError] = useState('')
+import type { Meal } from '../../../services/mealsCategoryAPI'
+// import RestaurantsPageNavbar from '../RestaurantsPageNavbar/RestaurantsPageNavbar'
 
-   useEffect(() => {
-      if (!categoryName) return
-      axios
-         .get(
-            `https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`,
-         )
-         .then((res) => {
-            setMeals(res.data.meals)
-            setIsLoading(false)
-         })
-         .catch((err) => {
-            setError(err.message || 'Something went wrong')
-            setIsLoading(false)
-         })
-   }, [categoryName])
+// interface CategoryMealsProps {
+//    category: string
+// }
 
-   if (isLoading) return <div>Loading meals...</div>
-   if (error) return <div>Error: {error}</div>
+// { category }: CategoryMealsProps
+
+const CategoryMeals = (): React.JSX.Element => {
+   const params = useParams<{ categoryName?: string }>()
+   const categoryName = params.categoryName ?? ''
+
+   const { data, error, isLoading } = useGetMealsByCategoryQuery(
+      categoryName ?? '',
+   )
+
+   if (isLoading) {
+      return <div>Loading meals...</div>
+   }
+
+   if (error) {
+      return <div>Oops, something went wrong!</div>
+   }
 
    return (
-      <div
-         style={{
-            padding: '20px',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '20px',
-         }}
-      >
-         {meals?.map((meal) => (
-            <div key={meal.idMeal} style={{ textAlign: 'center' }}>
-               <img
-                  alt={meal.strMeal}
-                  src={meal.strMealThumb}
-                  style={{ width: '100%', borderRadius: '10px' }}
-               />
-               <h3>{meal.strMeal}</h3>
-            </div>
-         ))}
+      <div>
+         <ul style={{ padding: 0 }}>
+            {data?.map((meal: Meal) => (
+               <li
+                  key={meal.idMeal}
+                  style={{
+                     listStyle: 'none',
+                     textAlign: 'center',
+                     marginBottom: '2rem',
+                     maxWidth: '400px',
+                     marginInline: 'auto',
+                  }}
+               >
+                  <img
+                     alt={meal.strMeal}
+                     src={meal.strMealThumb}
+                     style={{ width: '100px', borderRadius: '10px' }}
+                  />
+                  <h3>{meal.strMeal}</h3>
+               </li>
+            ))}
+         </ul>
       </div>
    )
 }

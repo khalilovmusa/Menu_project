@@ -7,9 +7,6 @@
 }
 
 .category_item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   padding: 16px;
   background-color: #f9f9f9;
@@ -66,4 +63,21 @@
   .category_item h3 {
     font-size: 0.95rem;
   }
+}
+
+.categories_wrapper {
+  max-width: 50%;
+}
+
+.category_thumbnail {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+}
+
+.category_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
 }

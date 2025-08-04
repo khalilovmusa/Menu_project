@@ -22,15 +22,14 @@ export const restaurantSlice = createSlice({
             (rest) => rest.id === +action.payload,
          )
       },
-      clearSelected: (state) => {
-         state.selected = undefined
-      },
-      addRestaurant: (state, action: PayloadAction<RestaurantTypes>) => {
-         state.restaurants.push(action.payload)
-      },
+      // clearSelected: (state) => {
+      //    state.selected = undefined
+      // },
+      // addRestaurant: (state, action: PayloadAction<RestaurantTypes>) => {
+      //    state.restaurants.push(action.payload)
+      // },
    },
 })
 
-export const { selectById, clearSelected, addRestaurant } =
-   restaurantSlice.actions
+export const { selectById } = restaurantSlice.actions
 export default restaurantSlice.reducer

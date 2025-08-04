@@ -4,13 +4,6 @@ import { useParams } from 'react-router'
 import { useGetMealsByCategoryQuery } from '@services/mealsCategoryAPI'
 
 import type { Meal } from '../../../services/mealsCategoryAPI'
-// import RestaurantsPageNavbar from '../RestaurantsPageNavbar/RestaurantsPageNavbar'
-
-// interface CategoryMealsProps {
-//    category: string
-// }
-
-// { category }: CategoryMealsProps
 
 const CategoryMeals = (): React.JSX.Element => {
    const params = useParams<{ categoryName?: string }>()
@@ -19,14 +12,8 @@ const CategoryMeals = (): React.JSX.Element => {
    const { data, error, isLoading } = useGetMealsByCategoryQuery(
       categoryName ?? '',
    )
-
-   if (isLoading) {
-      return <div>Loading meals...</div>
-   }
-
-   if (error) {
-      return <div>Oops, something went wrong!</div>
-   }
+   if (isLoading) return <div>Loading Categories...</div>
+   if (error) return <div>Oops, something went wrong!</div>
 
    return (
       <div>
@@ -47,6 +34,7 @@ const CategoryMeals = (): React.JSX.Element => {
                      src={meal.strMealThumb}
                      style={{ width: '100px', borderRadius: '10px' }}
                   />
+                  <p>{meal.strArea}</p>
                   <h3>{meal.strMeal}</h3>
                </li>
             ))}

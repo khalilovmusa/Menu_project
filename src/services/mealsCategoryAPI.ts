@@ -27,7 +27,7 @@ export const mealsCategoryAPI = createApi({
          query: (category) => `filter.php?c=${category}`,
          transformResponse: (response: { meals: Meal[] }) => response.meals,
       }),
-      getMealItem: builder.query({
+      getMealItem: builder.query<Meal, string>({
          query: (id) => `lookup.php?i=${id}`,
          transformResponse: (response: { meals: Meal[] }) => response.meals[0],
       }),

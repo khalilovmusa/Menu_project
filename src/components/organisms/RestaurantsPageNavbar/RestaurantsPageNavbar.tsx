@@ -14,7 +14,7 @@ const RestaurantsPageNavbar: FC = () => {
    const handleSelect = (option: string): void => {
       const directoryArr = option.toLowerCase().split(' ')
       const directory = directoryArr.join('_')
-      navigate(directory)
+      navigate(`/${directory}`)
    }
    return (
       <div className={styles.restaurants_header}>

@@ -4,6 +4,9 @@
    justify-content: space-between;
    padding: 1% 2.5%;
    align-items: center;
+
+   background-color: #A5A58D;
+   border-radius: 50px;
 }
 
 .header_location_wrapper{

@@ -34,7 +34,6 @@ const TaggedRestaurants: FC<TaggedRestaurantProps> = ({
       )
       setTaggedRestaurantDataArr(filteredTagRestaurantsData)
    }, [restaurantTags, TaggedRestaurantData])
-
    switch (restaurantTags[0].toLowerCase()) {
       case 'family':
          tagEmoji = '👨‍👩‍👧‍👦'
@@ -73,7 +72,9 @@ const TaggedRestaurants: FC<TaggedRestaurantProps> = ({
                      src={restaurant.bannerImg}
                   />
                   <div>
-                     {restaurant.restaurant}
+                     <span className={styles.restaurant_name}>
+                        {restaurant.restaurant}
+                     </span>
                      <div className={styles.tagged_restaurant_distance}>
                         <img alt="distance_icn" src={distance_icon} />
                         {restaurant.distance + ' km away'}

@@ -6,7 +6,7 @@ import RestaurantsPageNavbar from '@components/organisms/RestaurantsPageNavbar/R
 
 const RestaurantsPage: FC = () => {
    return (
-      <div>
+      <div style={{ backgroundColor: '#A5A58D' }}>
          <RestaurantsPageNavbar />
          <TaggedRestaurants
             restaurantTags={['FAMILY']}

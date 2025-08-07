@@ -1,34 +1,27 @@
 import * as React from 'react'
-import { useParams } from 'react-router'
+// import { useParams } from 'react-router'
 
 import { useGetMealsByCategoryQuery } from '@services/mealsCategoryAPI'
 
 import type { Meal } from '../../../services/mealsCategoryAPI'
 
-const CategoryMeals: React.FC = () => {
-   const params = useParams<{ categoryName?: string }>()
-   const categoryName = params.categoryName ?? ''
+import styles from './Meals.module.css'
 
+interface MealProps {
+   categoryName: string
+}
+
+const Meals: React.FC<MealProps> = ({ categoryName }) => {
    const { data, error, isLoading } = useGetMealsByCategoryQuery(
       categoryName ?? '',
    )
    if (isLoading) return <div>Loading Categories...</div>
    if (error) return <div>Oops, something went wrong!</div>
-
    return (
-      <div>
-         <ul style={{ padding: 0 }}>
+      <div className={styles.meals_wrapper}>
+         <ul className={styles.meals_list}>
             {data?.map((meal: Meal) => (
-               <li
-                  key={meal.idMeal}
-                  style={{
-                     listStyle: 'none',
-                     textAlign: 'center',
-                     marginBottom: '2rem',
-                     maxWidth: '400px',
-                     marginInline: 'auto',
-                  }}
-               >
+               <li className={styles.meal_item} key={meal.idMeal}>
                   <img
                      alt={meal.strMeal}
                      src={meal.strMealThumb}
@@ -43,4 +36,4 @@ const CategoryMeals: React.FC = () => {
    )
 }
 
-export default CategoryMeals
+export default Meals

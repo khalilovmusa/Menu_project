@@ -22,7 +22,7 @@
 .category_container {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   list-style: none;
   padding: 1%;
   padding-left: 1%;
@@ -30,6 +30,10 @@
   background-color: #A5A58D;
   border-radius: 10px;
   margin-top: 10px;
+
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .category_item {
@@ -57,7 +61,6 @@ a {
   object-fit: contain;
   border-radius: 8px;
 }
-
 
 .regular_text {
   color: #1e1e1e;

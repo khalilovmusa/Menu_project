@@ -1,20 +1,65 @@
-.meals_wrapper{
-
+.meals_wrapper {
+   width: 100%;
 }
 
 .meals_list {
    display: grid;
-   grid-template-columns: repeat(3, 1fr)
+   grid-template-columns: repeat(2, 1fr);
+   gap: 10px;
+   box-sizing: border-box;
 }
 
 .meal_item {
-   list-style: none;
+   display: flex;
+   flex-direction: column;
+   flex-shrink: shrink;
+
+   justify-content: center;
+   align-items: center;
    text-align: center;
+
+   position: relative;
+   list-style: none;
+
    margin-bottom: 2rem;
-   max-width: 300px;
 
    background-color: #fff;
    color: #1e1e1e;
    border-radius: 15px;
-   
+
+   cursor: pointer;
+}
+
+.add_meal_icon {
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   text-align: center;
+
+   margin: 0;
+   padding: 0;
+   font-size: 25px;
+   background-color: #6B705C;
+   color: #fff;
+   width: 30px;
+   height: 30px;
+   border-radius: 50%;
+
+   cursor: pointer;
+}
+
+.meal_name {
+   width: 230px;
+}
+
+.meal_thumbnail { 
+   width: 100%;
+   border-radius: 10px; 
+}
+
+@media(max-width: 666px) {
+   .meals_list {
+      gap: 5px;
+   }
+
 }

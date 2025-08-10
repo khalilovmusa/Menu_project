@@ -24,11 +24,18 @@ const Meals: React.FC<MealProps> = ({ categoryName }) => {
                <li className={styles.meal_item} key={meal.idMeal}>
                   <img
                      alt={meal.strMeal}
+                     className={styles.meal_thumbnail}
                      src={meal.strMealThumb}
-                     style={{ width: '100px', borderRadius: '10px' }}
                   />
-                  <p>{meal.strArea}</p>
-                  <h3>{meal.strMeal}</h3>
+                  <h4 className={styles.meal_name}>{meal.strMeal}</h4>
+                  <span
+                     className={styles.add_meal_icon}
+                     onClick={() => {
+                        console.log('cart add')
+                     }}
+                  >
+                     +
+                  </span>
                </li>
             ))}
          </ul>

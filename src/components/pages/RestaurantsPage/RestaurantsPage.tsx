@@ -2,7 +2,7 @@ import { type FC } from 'react'
 
 import { dummyRestaurants } from '@store/dummyRestaurants/dummyRestaurants'
 import TaggedRestaurants from '@components/organisms/TaggedRestaurants/TaggedRestaurants'
-import RestaurantsPageNavbar from '@components/organisms/RestaurantsPageNavbar/RestaurantsPageNavbar'
+import RestaurantsPageNavbar from '@components/molecules/RestaurantsPageNavbar/RestaurantsPageNavbar'
 
 const RestaurantsPage: FC = () => {
    return (

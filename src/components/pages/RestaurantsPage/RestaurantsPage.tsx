@@ -1,6 +1,6 @@
 import { type FC } from 'react'
 
-import { dummyRestaurants } from '@store/dummyRestaurants/dummyRestaurants'
+import { dummyRestaurants } from '@store/helper/dummyRestaurants/dummyRestaurants'
 import TaggedRestaurants from '@components/organisms/TaggedRestaurants/TaggedRestaurants'
 import RestaurantsPageNavbar from '@components/molecules/RestaurantsPageNavbar/RestaurantsPageNavbar'
 

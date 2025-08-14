@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 import type { RestaurantTypes } from 'types/dummyRestaurantsTypes'
-import { dummyRestaurants } from '@store/dummyRestaurants/dummyRestaurants'
+import { dummyRestaurants } from '@store/helper/dummyRestaurants/dummyRestaurants'
 
 interface RestaurantState {
    restaurants: RestaurantTypes[]

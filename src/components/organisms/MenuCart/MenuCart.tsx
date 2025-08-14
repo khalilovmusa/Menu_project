@@ -22,7 +22,7 @@ const MenuCart: FC<MenuCartProps> = ({
    return (
       <div
          className={styles.menu_cart_wrapper}
-         onClick={() => navigate('/categories')}
+         onClick={() => navigate('/menu')}
       >
          <div>
             <p className={styles.menu_text}>{headerText}</p>

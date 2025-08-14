@@ -1,4 +1,4 @@
-import type { RestaurantTypes } from '../../types/dummyRestaurantsTypes'
+import type { RestaurantTypes } from '../../../types/dummyRestaurantsTypes'
 
 export const dummyRestaurants: RestaurantTypes[] = [
    {

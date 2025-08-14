@@ -1,87 +1,47 @@
 import * as React from 'react'
+import { useNavigate } from 'react-router'
 
-import { useGetCategoriesQuery } from '@services/mealsCategoryAPI'
 import Loading from '@components/molecules/Loading/Loading'
-
-import RestaurantsPageNavbar from '../../molecules/RestaurantsPageNavbar/RestaurantsPageNavbar'
-import Meals from '../Meals/Meals'
+import { menuData } from '@store/helper/mainCategories.ts/menuData'
+import basket_fill from '@assets/basket-fill.svg'
+import arrow_left from '@assets/arrow-left.svg'
+import arrow_right from '@assets/arrow-right.svg'
 
 import styles from './MenuCategories.module.css'
-type SectionRefMap = { [key: string]: HTMLDivElement | null }
 
 const MenuCategories = (): React.JSX.Element => {
-   const categories = useGetCategoriesQuery()
-   const categoriesData = categories.currentData
-   const sectionRefs = React.useRef<SectionRefMap>({})
-   const [categoriesSections, setCategoriesSections] = React.useState<string[]>(
-      [],
-   )
-   React.useEffect(() => {
-      if (!categoriesData) return
-      const categoryNames = categoriesData.map(
-         (category) => category.strCategory,
-      )
-      setCategoriesSections(categoryNames)
-   }, [categoriesData])
-
-   const scrollToSectionWithOffset = (name: string, offset = 250): void => {
-      const sectionElem = sectionRefs.current[name]
-      if (sectionElem) {
-         const top =
-            sectionElem?.getBoundingClientRect().top + window.scrollY - offset
-         window.scrollTo({ top, behavior: 'smooth' })
-      }
-   }
-   const trimSectionName = (name: string): string => {
-      name = name.slice(0, 7).concat('...')
-      return name
-   }
-   if (!categoriesData?.length) return <Loading text={'Loading...'} />
+   const navigate = useNavigate()
+   const slugify = (text: string): string =>
+      text.toLowerCase().replace(/\s+/g, '-')
+   if (menuData.length === 0) return <Loading text="loading" />
    return (
       <div className={styles.main}>
-         <div className={styles.categories_wrapper}>
-            <RestaurantsPageNavbar />
-            <ul className={styles.category_container}>
-               {categoriesData?.map((category) => {
-                  return (
-                     <li
-                        className={styles.category_item}
-                        key={category.idCategory}
-                     >
-                        <a
-                           onClick={() => {
-                              scrollToSectionWithOffset(category.strCategory)
-                           }}
-                        >
-                           <img
-                              className={styles.category_thumbnail}
-                              src={category.strCategoryThumb}
-                           />
-                           <p className={styles.regular_text}>
-                              {category.strCategory.length > 7
-                                 ? trimSectionName(category.strCategory)
-                                 : category.strCategory}
-                           </p>
-                        </a>
-                     </li>
-                  )
-               })}
-            </ul>
-         </div>
-         <nav className={styles.scrollable_meals}>
-            {categoriesSections?.map((section) => (
-               <div
-                  className={styles.section_item}
-                  key={section}
-                  ref={(element) => {
-                     sectionRefs.current[section] = element
-                  }}
+         <header className={styles.categories_header}>
+            <button
+               className={styles.return_back_btn}
+               onClick={() => navigate(-1)}
+            >
+               <img className={styles.return_back_img} src={arrow_left} />
+            </button>
+            <p className={styles.menu_header}>Menu</p>
+            <button className={styles.menu_cart}>
+               <img className={styles.menu_cart_img} src={basket_fill} />
+            </button>
+         </header>
+         <ul className={styles.categories_wrapper}>
+            {menuData?.map((category) => (
+               <li
+                  className={styles.category_item}
+                  key={category.id}
+                  onClick={() => navigate(slugify(category.name))}
                >
-                  <p className={styles.section_header}>{section}</p>
-                  <Meals categoryName={section} key={section} />
-               </div>
+                  <span className={styles.category_name}>{category.name}</span>
+                  <span className={styles.goto_btn}>
+                     <img className={styles.goto_btn_img} src={arrow_right} />
+                  </span>
+               </li>
             ))}
-         </nav>
+         </ul>
       </div>
    )
 }

@@ -4,12 +4,12 @@ import './index.css'
 import type { FC } from 'react'
 
 import MenuCategories from '@components/organisms/MenuCategories/MenuCategories.tsx'
-import CategoryMeals from '@components/organisms/CategoryMeals/CategoryMeals.tsx'
 import MenuInfo from '@components/organisms/MenuInfo/MenuInfo.tsx'
 import { store } from '@store/store.ts'
 import MobileApp from '@components/pages/MobileAppPage/MobileApp.tsx'
 import AboutUs from '@components/pages/AboutUsPage/AboutUsPage.tsx'
 import RestaurantsPage from '@components/pages/RestaurantsPage/RestaurantsPage'
+import CategoryDetail from '@components/organisms/CategoryDetail/CategoryDetail'
 
 const App: FC = () => {
    return (
@@ -18,10 +18,11 @@ const App: FC = () => {
             <Routes>
                <Route element={<RestaurantsPage />} path="/" />
                <Route element={<MenuInfo />} path="/:restaurant/:id" />
-               <Route element={<MenuCategories />} path="/categories" />
+               <Route element={<MenuCategories />} path="/menu" />
+               <Route element={<CategoryDetail />} path="/menu/:categorySlug" />
                <Route
-                  element={<CategoryMeals />}
-                  path="/categories/:categoryName"
+                  element={<CategoryDetail />}
+                  path="/menu/:categorySlug/:subCategorySlug"
                />
                <Route element={<MobileApp />} path="/mobile_app" />
                <Route element={<AboutUs />} path="/about_us" />

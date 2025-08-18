@@ -3,16 +3,16 @@ import { useNavigate } from 'react-router'
 
 import Btn from '@components/atoms/general/Btn'
 
-import styles from './MenuCart.module.css'
+import styles from './MenuInfoBottom.module.css'
 
-interface MenuCartProps {
+interface MenuInfoBottomProps {
    headerText: string
    subHeaderText: string
    cartIcon: string
    btnIcon: string
 }
 
-const MenuCart: FC<MenuCartProps> = ({
+const MenuInfoBottom: FC<MenuInfoBottomProps> = ({
    headerText,
    subHeaderText,
    cartIcon,
@@ -38,4 +38,4 @@ const MenuCart: FC<MenuCartProps> = ({
    )
 }
 
-export default MenuCart
+export default MenuInfoBottom

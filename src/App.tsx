@@ -10,6 +10,8 @@ import MobileApp from '@components/pages/MobileAppPage/MobileApp.tsx'
 import AboutUs from '@components/pages/AboutUsPage/AboutUsPage.tsx'
 import RestaurantsPage from '@components/pages/RestaurantsPage/RestaurantsPage'
 import CategoryDetail from '@components/organisms/CategoryDetail/CategoryDetail'
+import NotFoundPage from '@components/pages/NotFoundPage/NotFound'
+import CategoryMeals from '@components/organisms/CategoryMeals/CategoryMeals'
 
 const App: FC = () => {
    return (
@@ -21,11 +23,12 @@ const App: FC = () => {
                <Route element={<MenuCategories />} path="/menu" />
                <Route element={<CategoryDetail />} path="/menu/:categorySlug" />
                <Route
-                  element={<CategoryDetail />}
+                  element={<CategoryMeals />}
                   path="/menu/:categorySlug/:subCategorySlug"
                />
                <Route element={<MobileApp />} path="/mobile_app" />
                <Route element={<AboutUs />} path="/about_us" />
+               <Route element={<NotFoundPage />} path="*" />
             </Routes>
          </BrowserRouter>
       </Provider>

@@ -1,14 +1,14 @@
 import type { FC } from 'react'
 
-import styles from './MenuHeader.module.css'
+import styles from './MenuInfoTop.module.css'
 
-interface MenuHeaderProps {
+interface MenuInfoTopProps {
    restaurant: string | 'restaurant-name'
    companyLogo: string
    secondLogo: string
 }
 
-const MenuHeader: FC<MenuHeaderProps> = ({
+const MenuInfoTop: FC<MenuInfoTopProps> = ({
    restaurant,
    companyLogo,
    secondLogo,
@@ -37,4 +37,4 @@ const MenuHeader: FC<MenuHeaderProps> = ({
    )
 }
 
-export default MenuHeader
+export default MenuInfoTop

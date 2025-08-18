@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router'
 
 import Loading from '@components/molecules/Loading/Loading'
 import { menuData } from '@store/helper/mainCategories.ts/menuData'
-import basket_fill from '@assets/basket-fill.svg'
-import arrow_left from '@assets/arrow-left.svg'
+import MenuHeader from '@components/molecules/MenuHeader/MenuHeader'
 import arrow_right from '@assets/arrow-right.svg'
 
 import styles from './MenuCategories.module.css'
@@ -16,18 +15,7 @@ const MenuCategories = (): React.JSX.Element => {
    if (menuData.length === 0) return <Loading text="loading" />
    return (
       <div className={styles.main}>
-         <header className={styles.categories_header}>
-            <button
-               className={styles.return_back_btn}
-               onClick={() => navigate(-1)}
-            >
-               <img className={styles.return_back_img} src={arrow_left} />
-            </button>
-            <p className={styles.menu_header}>Menu</p>
-            <button className={styles.menu_cart}>
-               <img className={styles.menu_cart_img} src={basket_fill} />
-            </button>
-         </header>
+         <MenuHeader />
          <ul className={styles.categories_wrapper}>
             {menuData?.map((category) => (
                <li

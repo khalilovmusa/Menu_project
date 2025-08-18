@@ -1,41 +1,31 @@
 import * as React from 'react'
 import { useParams } from 'react-router'
 
-import { useGetMealsByCategoryQuery } from '@services/mealsCategoryAPI'
+import { menuData } from '@store/helper/mainCategories.ts/menuData'
+import MenuHeader from '@components/molecules/MenuHeader/MenuHeader'
 
-import type { Meal } from '../../../services/mealsCategoryAPI'
+import styles from './CategoryMeals.module.css'
 
 const CategoryMeals: React.FC = () => {
-   const params = useParams<{ categoryName?: string }>()
-   const categoryName = params.categoryName ?? ''
-
-   const { data, error, isLoading } = useGetMealsByCategoryQuery(
-      categoryName ?? '',
-   )
-   if (isLoading) return <div>Loading Categories...</div>
-   if (error) return <div>Oops, something went wrong!</div>
-
+   const { categorySlug, subCategorySlug } = useParams()
+   const category = menuData.find((category) => category.slug === categorySlug)
+   const subCategory = categorySlug?.length
+      ? category?.subcategories.find((sub) => sub.slug === subCategorySlug)
+      : null
+   const data = subCategory?.items
    return (
-      <div>
-         <ul style={{ padding: 0 }}>
-            {data?.map((meal: Meal) => (
-               <li
-                  key={meal.idMeal}
-                  style={{
-                     listStyle: 'none',
-                     textAlign: 'center',
-                     marginBottom: '2rem',
-                     maxWidth: '400px',
-                     marginInline: 'auto',
-                  }}
-               >
+      <div className={styles.main}>
+         <MenuHeader />
+         <ul className={styles.list_wrapper}>
+            {data?.map((meal) => (
+               <li className={styles.list_item} key={meal.id}>
                   <img
-                     alt={meal.strMeal}
-                     src={meal.strMealThumb}
-                     style={{ width: '100px', borderRadius: '10px' }}
+                     alt={meal.name}
+                     className={styles.meal_thumbnail}
+                     src={meal.image}
                   />
-                  <p>{meal.strArea}</p>
-                  <h3>{meal.strMeal}</h3>
+                  <p>{meal.name}</p>
+                  <h3>{meal.name}</h3>
                </li>
             ))}
          </ul>

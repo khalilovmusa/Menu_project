@@ -10,8 +10,8 @@ import type { AppDispatch, RootState } from '@store/store'
 import { selectById } from '@store/slices/restaurantsSlice'
 import StarRating from '@components/molecules/StarRating/StarRating'
 
-import MenuHeader from '../MenuHeader/MenuHeader'
-import MenuCart from '../MenuCart/MenuCart'
+import MenuInfoTop from '../MenuInfoTop/MenuInfoTop'
+import MenuInfoBottom from '../MenuInfoBottom/MenuInfoBottom'
 
 import styles from './MenuInfo.module.css'
 
@@ -32,12 +32,12 @@ const MenuInfo: FC = () => {
       <div className={styles.menu_wrapper}>
          <StarRating />
          <div>
-            <MenuHeader
+            <MenuInfoTop
                companyLogo={selectedRestaurant?.bannerImg ?? companyLogo}
                restaurant={restaurant ?? 'Restaurant-name'}
                secondLogo={foodLogo}
             />
-            <MenuCart
+            <MenuInfoBottom
                btnIcon={btnArrow}
                cartIcon={bowlCartoon}
                headerText={'Menu'}

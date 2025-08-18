@@ -4,17 +4,30 @@
 
 .list_wrapper { 
    padding: 0;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 5px;
 }
 
 .list_item {
-   listStyle: 'none';
-   textAlign: 'center';
-   marginBottom: '2rem';
-   maxWidth: '400px';
-   marginInline: 'auto';
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+
+   listStyle: none;
+   textAlign: center;
+   marginBottom: 2rem;
+   maxWidth: 400px;
+   marginInline: auto;
+   cursor: pointer;
 }
 
 .meal_thumbnail {
-   width: '100px';
-   borderRadius: '10px';
+   width: 100%;
+   height: 100%;
+   border: none;
+   border-radius: 8px;
+   object-fit: cover;
+   borderRadius: 10px;
 }

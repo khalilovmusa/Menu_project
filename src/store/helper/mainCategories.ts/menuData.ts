@@ -191,7 +191,7 @@ export const menuData: MainCategory[] = [
                   id: 312,
                   name: 'Latte',
                   price: 3.5,
-                  image: 'https://avatars.mds.yandex.net/i?id=5a79c4acfba865fdb3b4e1e3864a0cdda3cc3b62-12727852-images-thumbs&n=13',
+                  image: 'https://avatars.mds.yandex.net/i?id=96f412f251ef5a31845df616dcbbd235623d68fa-10414202-images-thumbs&n=13',
                },
                {
                   id: 313,

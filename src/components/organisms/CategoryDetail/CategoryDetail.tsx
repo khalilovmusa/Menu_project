@@ -13,6 +13,12 @@ const CategoryDetail = (): React.JSX.Element => {
    const navigate = useNavigate()
    const slugify = (text: string): string =>
       text.toLowerCase().replace(/\s+/g, '-')
+   const unslugify = (name: string): string => {
+      const words = name.split('-')
+      const [first, ...rest] = words
+      const firstWordCapitalize = first.charAt(0).toUpperCase() + first.slice(1)
+      return [firstWordCapitalize, ...rest].join(' ')
+   }
 
    const { categorySlug, subCategorySlug } = useParams()
    const category = menuData.find((category) => category.slug === categorySlug)
@@ -28,7 +34,11 @@ const CategoryDetail = (): React.JSX.Element => {
    }
    return (
       <div className={styles.main}>
-         <MenuHeader />
+         <MenuHeader
+            headerText={unslugify(
+               subCategorySlug?.length ? subCategorySlug : (categorySlug ?? ''),
+            )}
+         />
          <ul className={styles.categories_wrapper}>
             {data?.map((category) => (
                <li

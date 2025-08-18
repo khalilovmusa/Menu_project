@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useNavigate } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 
 import Loading from '@components/molecules/Loading/Loading'
 import { menuData } from '@store/helper/mainCategories.ts/menuData'
@@ -9,13 +9,20 @@ import arrow_right from '@assets/arrow-right.svg'
 import styles from './MenuCategories.module.css'
 
 const MenuCategories = (): React.JSX.Element => {
+   const { categorySlug } = useParams()
    const navigate = useNavigate()
    const slugify = (text: string): string =>
       text.toLowerCase().replace(/\s+/g, '-')
+   const unslugify = (name: string): string => {
+      const words = name.split('-')
+      const [first, ...rest] = words
+      const firstWordCapitalize = first.charAt(0).toUpperCase() + first.slice(1)
+      return [firstWordCapitalize, ...rest].join(' ')
+   }
    if (menuData.length === 0) return <Loading text="loading" />
    return (
       <div className={styles.main}>
-         <MenuHeader />
+         <MenuHeader headerText={unslugify(categorySlug ?? 'Menu')} />
          <ul className={styles.categories_wrapper}>
             {menuData?.map((category) => (
                <li

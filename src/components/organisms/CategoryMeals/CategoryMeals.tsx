@@ -13,9 +13,19 @@ const CategoryMeals: React.FC = () => {
       ? category?.subcategories.find((sub) => sub.slug === subCategorySlug)
       : null
    const data = subCategory?.items
+   const unslugify = (name: string): string => {
+      const words = name.split('-')
+      const [first, ...rest] = words
+      const firstWordCapitalize = first.charAt(0).toUpperCase() + first.slice(1)
+      return [firstWordCapitalize, ...rest].join(' ')
+   }
    return (
       <div className={styles.main}>
-         <MenuHeader />
+         <MenuHeader
+            headerText={unslugify(
+               subCategorySlug?.length ? subCategorySlug : (categorySlug ?? ''),
+            )}
+         />
          <ul className={styles.list_wrapper}>
             {data?.map((meal) => (
                <li className={styles.list_item} key={meal.id}>

@@ -12,6 +12,7 @@ import RestaurantsPage from '@components/pages/RestaurantsPage/RestaurantsPage'
 import CategoryDetail from '@components/organisms/CategoryDetail/CategoryDetail'
 import NotFoundPage from '@components/pages/NotFoundPage/NotFound'
 import CategoryMeals from '@components/organisms/CategoryMeals/CategoryMeals'
+import MenuCart from '@components/molecules/MenuCart/MenuCart'
 
 const App: FC = () => {
    return (
@@ -26,6 +27,7 @@ const App: FC = () => {
                   element={<CategoryMeals />}
                   path="/menu/:categorySlug/:subCategorySlug"
                />
+               <Route element={<MenuCart />} path="/cart" />
                <Route element={<MobileApp />} path="/mobile_app" />
                <Route element={<AboutUs />} path="/about_us" />
                <Route element={<NotFoundPage />} path="*" />

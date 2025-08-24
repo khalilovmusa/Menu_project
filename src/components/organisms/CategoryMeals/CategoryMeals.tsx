@@ -1,12 +1,16 @@
 import * as React from 'react'
 import { useParams } from 'react-router'
+import { useDispatch } from 'react-redux'
 
 import { menuData } from '@store/helper/mainCategories.ts/menuData'
 import MenuHeader from '@components/molecules/MenuHeader/MenuHeader'
+import plus_icon from '@assets/plus-lg.svg'
+import { addItem } from '@store/slices/orderSlice'
 
 import styles from './CategoryMeals.module.css'
 
 const CategoryMeals: React.FC = () => {
+   const dispatch = useDispatch()
    const { categorySlug, subCategorySlug } = useParams()
    const category = menuData.find((category) => category.slug === categorySlug)
    const subCategory = categorySlug?.length
@@ -34,8 +38,25 @@ const CategoryMeals: React.FC = () => {
                      className={styles.meal_thumbnail}
                      src={meal.image}
                   />
-                  <p>{meal.name}</p>
                   <h3>{meal.name}</h3>
+                  <div className={styles.meal_details_wrapper}>
+                     <p className={styles.meal_price}>{meal.price}$</p>
+                     <button
+                        className={styles.add_meal_btn}
+                        onClick={() => {
+                           const cartItem = {
+                              id: meal.id,
+                              name: meal.name,
+                              price: meal.price,
+                              image: meal.image,
+                              quantity: 1,
+                           }
+                           dispatch(addItem(cartItem))
+                        }}
+                     >
+                        <img className={styles.add_meal_icon} src={plus_icon} />
+                     </button>
+                  </div>
                </li>
             ))}
          </ul>

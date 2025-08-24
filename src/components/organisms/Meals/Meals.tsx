@@ -1,7 +1,8 @@
 import * as React from 'react'
-// import { useParams } from 'react-router'
+import { useDispatch } from 'react-redux'
 
 import { useGetMealsByCategoryQuery } from '@services/mealsCategoryAPI'
+import { addItem } from '@store/slices/orderSlice'
 
 import type { Meal } from '../../../services/mealsCategoryAPI'
 
@@ -12,6 +13,7 @@ interface MealProps {
 }
 
 const Meals: React.FC<MealProps> = ({ categoryName }) => {
+   const dispatch = useDispatch()
    const { data, error, isLoading } = useGetMealsByCategoryQuery(
       categoryName ?? '',
    )
@@ -31,10 +33,17 @@ const Meals: React.FC<MealProps> = ({ categoryName }) => {
                   <span
                      className={styles.add_meal_icon}
                      onClick={() => {
-                        console.log('cart add')
+                        const cartItem = {
+                           id: meal.idMeal,
+                           name: meal.strMeal,
+                           price: 10,
+                           quantity: 1,
+                        }
+
+                        dispatch(addItem(cartItem))
                      }}
                   >
-                     +
+                     .
                   </span>
                </li>
             ))}

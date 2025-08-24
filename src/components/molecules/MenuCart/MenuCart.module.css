@@ -1,0 +1,20 @@
+.wrapper { 
+  width: 90% 
+}
+
+.list_wrapper {
+  list-style: none;
+}
+
+.list_item {
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.item_thumbnail {
+  height: 80px;
+  width: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+}

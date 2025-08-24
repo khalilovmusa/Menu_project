@@ -19,6 +19,7 @@ const MenuHeader = ({
 }: MenuHeaderProps): React.JSX.Element => {
    const location = useLocation()
    const navigate = useNavigate()
+   const isCartActive = (totalPrice ?? 0) > 0
    return (
       <header className={styles.categories_header}>
          <button
@@ -30,12 +31,12 @@ const MenuHeader = ({
          <p className={styles.menu_header}>{headerText}</p>
          <button
             className={
-               totalPrice > 0 ? styles.menu_cart_active : styles.menu_cart
+               isCartActive ? styles.menu_cart_active : styles.menu_cart
             }
             disabled={location.pathname === '/cart'}
             onClick={() => navigate('/cart')}
          >
-            {totalPrice > 0 ? (
+            {isCartActive ? (
                <p className={styles.total_price}>${totalPrice}</p>
             ) : null}
             <img

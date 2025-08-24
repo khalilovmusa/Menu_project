@@ -12,10 +12,14 @@ const MenuCart = (): React.JSX.Element => {
    const totalQuantity = useSelector(
       (state: RootState) => state.cart.totalQuantity,
    )
+   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice)
    return (
       <div className={styles.main}>
          {/* //!=> Will change this later  */}
-         <MenuHeader headerText={`Cart(${totalQuantity})`} />
+         <MenuHeader
+            headerText={`Cart(${totalQuantity})`}
+            totalPrice={totalPrice}
+         />
          <ul className={styles.list_wrapper}>
             {cartItems.map((item) => {
                return (
@@ -24,6 +28,7 @@ const MenuCart = (): React.JSX.Element => {
                      <div>
                         <h1>{item.name}</h1>
                         <p>Quantity: {item.quantity}</p>
+                        <p>{item.price}</p>
                      </div>
                   </li>
                )

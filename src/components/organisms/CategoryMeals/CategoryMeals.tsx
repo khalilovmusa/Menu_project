@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { useParams } from 'react-router'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
+import type { RootState } from '@store/store'
 import { unslugify } from 'utils/unslugify'
 import { menuData } from '@store/helper/mainCategories.ts/menuData'
 import MenuHeader from '@components/molecules/MenuHeader/MenuHeader'
@@ -18,12 +19,14 @@ const CategoryMeals: React.FC = () => {
       ? category?.subcategories.find((sub) => sub.slug === subCategorySlug)
       : null
    const data = subCategory?.items
+   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice)
    return (
       <div className={styles.main}>
          <MenuHeader
             headerText={unslugify(
                subCategorySlug?.length ? subCategorySlug : (categorySlug ?? ''),
             )}
+            totalPrice={totalPrice}
          />
          <ul className={styles.list_wrapper}>
             {data?.map((meal) => (

@@ -12,9 +12,8 @@ const MenuCart = (): React.JSX.Element => {
    const totalQuantity = useSelector(
       (state: RootState) => state.cart.totalQuantity,
    )
-   console.log(cartItems)
    return (
-      <div className={styles.wrapper}>
+      <div className={styles.main}>
          {/* //!=> Will change this later  */}
          <MenuHeader headerText={`Cart(${totalQuantity})`} />
          <ul className={styles.list_wrapper}>

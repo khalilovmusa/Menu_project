@@ -1,5 +1,7 @@
 .main {
    width: 35%;
+   position: absolute;
+   top: 0;
 }
 
 .list_wrapper { 
@@ -58,6 +60,6 @@
 
 @media (max-width: 900px){
    .main {
-      width: 80%;
+      width: 90%;
    }
 }

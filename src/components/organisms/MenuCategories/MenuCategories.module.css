@@ -1,5 +1,7 @@
 .main {
   width: 35%;
+  position: absolute;
+  top: 0;
 }
 
 .categories_header {
@@ -113,6 +115,6 @@ a {
 
 @media (max-width: 900px){
    .main {
-      width: 80%;
+      width: 90%;
    }
 }

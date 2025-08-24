@@ -2,6 +2,7 @@ import * as React from 'react'
 import { useParams } from 'react-router'
 import { useDispatch } from 'react-redux'
 
+import { unslugify } from 'utils/unslugify'
 import { menuData } from '@store/helper/mainCategories.ts/menuData'
 import MenuHeader from '@components/molecules/MenuHeader/MenuHeader'
 import plus_icon from '@assets/plus-lg.svg'
@@ -17,12 +18,6 @@ const CategoryMeals: React.FC = () => {
       ? category?.subcategories.find((sub) => sub.slug === subCategorySlug)
       : null
    const data = subCategory?.items
-   const unslugify = (name: string): string => {
-      const words = name.split('-')
-      const [first, ...rest] = words
-      const firstWordCapitalize = first.charAt(0).toUpperCase() + first.slice(1)
-      return [firstWordCapitalize, ...rest].join(' ')
-   }
    return (
       <div className={styles.main}>
          <MenuHeader

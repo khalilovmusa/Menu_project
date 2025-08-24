@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { useNavigate, useParams } from 'react-router'
 
+import { slugify } from 'utils/slugify'
+import { unslugify } from 'utils/unslugify'
 import Loading from '@components/molecules/Loading/Loading'
 import { menuData } from '@store/helper/mainCategories.ts/menuData'
 import MenuHeader from '@components/molecules/MenuHeader/MenuHeader'
@@ -11,14 +13,6 @@ import styles from './MenuCategories.module.css'
 const MenuCategories = (): React.JSX.Element => {
    const { categorySlug } = useParams()
    const navigate = useNavigate()
-   const slugify = (text: string): string =>
-      text.toLowerCase().replace(/\s+/g, '-')
-   const unslugify = (name: string): string => {
-      const words = name.split('-')
-      const [first, ...rest] = words
-      const firstWordCapitalize = first.charAt(0).toUpperCase() + first.slice(1)
-      return [firstWordCapitalize, ...rest].join(' ')
-   }
    if (menuData.length === 0) return <Loading text="loading" />
    return (
       <div className={styles.main}>

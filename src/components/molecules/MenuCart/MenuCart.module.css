@@ -1,5 +1,7 @@
-.wrapper { 
-  width: 90% 
+.main { 
+  width: 35%;
+  position: absolute;
+  top: 0;
 }
 
 .list_wrapper {
@@ -17,4 +19,10 @@
   width: 80px;
   border-radius: 10px;
   object-fit: cover;
+}
+
+@media (max-width: 900px){
+   .main {
+      width: 90%;
+   }
 }

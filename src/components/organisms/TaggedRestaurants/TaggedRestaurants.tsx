@@ -1,8 +1,8 @@
 import { useEffect, useState, type FC } from 'react'
 import { useNavigate } from 'react-router'
 
-import distance_icon from '@assets/distance_icon.svg'
 import type { RestaurantTypes } from 'types/dummyRestaurantsTypes'
+import distance_icon from '@assets/distance_icon.svg'
 
 import styles from './TaggedRestaurants.module.css'
 

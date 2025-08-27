@@ -5,7 +5,7 @@ import type { RootState } from '@store/store'
 import trash_red from '@assets/trash_red.svg'
 import plus from '@assets/plus-lg.svg'
 import minus from '@assets/minus.svg'
-import { addItem, removeItem } from '@store/slices/orderSlice'
+import { addItem, deleteItem, removeItem } from '@store/slices/orderSlice'
 
 import MenuHeader from '../MenuHeader/MenuHeader'
 
@@ -36,7 +36,19 @@ const MenuCart = (): React.JSX.Element => {
                      <div className={styles.item_info_container}>
                         <div className={styles.item_name_del_container}>
                            <h2>{item.name}</h2>
-                           <button className={styles.trash_button}>
+                           <button
+                              className={styles.trash_button}
+                              onClick={() => {
+                                 const cartItem = {
+                                    id: item.id,
+                                    name: item.name,
+                                    price: item.price,
+                                    image: item.image,
+                                    quantity: 1,
+                                 }
+                                 dispatch(deleteItem(cartItem))
+                              }}
+                           >
                               <img
                                  alt="delete_btn"
                                  className={styles.trash_icn_red}

@@ -1,16 +1,18 @@
 import * as React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import type { RootState } from '@store/store'
 import trash_red from '@assets/trash_red.svg'
 import plus from '@assets/plus-lg.svg'
 import minus from '@assets/minus.svg'
+import { addItem, removeItem } from '@store/slices/orderSlice'
 
 import MenuHeader from '../MenuHeader/MenuHeader'
 
 import styles from './MenuCart.module.css'
 
 const MenuCart = (): React.JSX.Element => {
+   const dispatch = useDispatch()
    const cartItems = useSelector((state: RootState) => state.cart.items)
    const totalQuantity = useSelector(
       (state: RootState) => state.cart.totalQuantity,
@@ -44,13 +46,37 @@ const MenuCart = (): React.JSX.Element => {
                         </div>
                         <p>$ {item.price.toFixed(2)}</p>
                         <div className={styles.quantity_container}>
-                           <button className={styles.quantity_buttons}>
+                           <button
+                              className={styles.quantity_buttons}
+                              onClick={() => {
+                                 const cartItem = {
+                                    id: item.id,
+                                    name: item.name,
+                                    price: item.price,
+                                    image: item.image,
+                                    quantity: 1,
+                                 }
+                                 dispatch(removeItem(cartItem))
+                              }}
+                           >
                               <img alt="decrease_btn" src={minus} />
                            </button>
                            <span className={styles.quantity_wrapper}>
                               {item.quantity}
                            </span>
-                           <button className={styles.quantity_buttons}>
+                           <button
+                              className={styles.quantity_buttons}
+                              onClick={() => {
+                                 const cartItem = {
+                                    id: item.id,
+                                    name: item.name,
+                                    price: item.price,
+                                    image: item.image,
+                                    quantity: 1,
+                                 }
+                                 dispatch(addItem(cartItem))
+                              }}
+                           >
                               <img alt="inecrease_btn" src={plus} />
                            </button>
                         </div>

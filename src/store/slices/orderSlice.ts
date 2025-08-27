@@ -36,8 +36,19 @@ export const counterSlice = createSlice({
          state.totalPrice += newItem.price
          state.totalQuantity += 1
       },
+      removeItem: (state, action) => {
+         const removingItem = action.payload
+         const existingItem = state.items.find(
+            (item) => item.id === removingItem.id,
+         )
+         if (existingItem) {
+            existingItem.quantity -= 1
+         }
+         state.totalPrice -= removingItem.price
+         state.totalQuantity -= 1
+      },
    },
 })
 
-export const { addItem } = counterSlice.actions
+export const { addItem, removeItem } = counterSlice.actions
 export default counterSlice.reducer

@@ -21,7 +21,7 @@ const MenuCart = (): React.JSX.Element => {
    return (
       <div className={styles.main}>
          <MenuHeader
-            headerText={`Cart(${totalQuantity})`}
+            headerText={`Cart (${totalQuantity})`}
             totalPrice={totalPrice}
          />
          <ul className={styles.list_wrapper}>
@@ -96,6 +96,30 @@ const MenuCart = (): React.JSX.Element => {
                   </li>
                )
             })}
+            <div className={styles.order_stats_container}>
+               {totalQuantity > 0 ? (
+                  <>
+                     <div>
+                        <span>
+                           <p>Order:</p>
+                           <p>$ {totalPrice.toFixed(2)}</p>
+                        </span>
+                        <span>
+                           <p>Service fee(20%):</p>
+                           <p>$ {((totalPrice * 20) / 100).toFixed(2)}</p>
+                        </span>
+                     </div>
+                     <button className={styles.order_btn}>
+                        Place Order
+                     </button>{' '}
+                  </>
+               ) : (
+                  <>
+                     <p>Your cart is empty. Order something</p>
+                     <button>Go to the menu</button>
+                  </>
+               )}
+            </div>
          </ul>
       </div>
    )

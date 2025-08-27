@@ -3,10 +3,13 @@
   position: absolute;
   top: 0;
   color: #1e1e1e;
+  justify-content: center;
 }
 
 .list_wrapper {
   list-style: none;
+  margin-bottom: 20%;
+  padding: 10px;
 }
 
 .list_item {
@@ -25,7 +28,7 @@
 }
 
 .item_info_container {
-  width: 70%;
+  width: 85%;
   padding: 10px;
 }
 
@@ -66,6 +69,35 @@
   margin-right: 5px;
   margin-left: 5px;
 }
+
+/* Start of the Stats component styles */
+
+.order_stats_container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.order_stats_container div span {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order_btn {
+  border: none;
+  border-radius: 20px;
+  fill: #fff;
+  padding: 10px;
+
+  background: #9370DB;
+  color: #fff;
+  cursor: pointer;
+
+  width: 100%;
+}
+
+/* End of the Stats component styles */
 
 @media (max-width: 900px){
   .main {

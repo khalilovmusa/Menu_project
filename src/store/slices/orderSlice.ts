@@ -41,8 +41,14 @@ export const counterSlice = createSlice({
          const existingItem = state.items.find(
             (item) => item.id === removingItem.id,
          )
-         if (existingItem) {
+         if (existingItem && existingItem.quantity > 0) {
             existingItem.quantity -= 1
+
+            if (existingItem.quantity === 0) {
+               state.items = state.items.filter(
+                  (item) => item.id !== removingItem.id,
+               )
+            }
          }
          state.totalPrice -= removingItem.price
          state.totalQuantity -= 1

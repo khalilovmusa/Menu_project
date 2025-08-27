@@ -37,7 +37,7 @@ const MenuHeader = ({
             onClick={() => navigate('/cart')}
          >
             {isCartActive ? (
-               <p className={styles.total_price}>${totalPrice}</p>
+               <p className={styles.total_price}>$ {totalPrice?.toFixed(2)}</p>
             ) : null}
             <img
                className={styles.menu_cart_img}

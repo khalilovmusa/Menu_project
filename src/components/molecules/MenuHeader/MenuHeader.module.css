@@ -57,10 +57,9 @@
 
 .menu_cart_active {
   transition: smooth;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 80px;
 
   background: #9370DB;
   color: #fff;
@@ -69,6 +68,7 @@
   border: none;
   border-radius: 20px;
   fill: #fff;
+  padding: 0 5px;
 }
 
 .menu_cart,

@@ -1,22 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const defaultItems = [
-   {
-      id: '311',
-      name: 'Espresso',
-      price: 2.5,
-      image: 'https://avatars.mds.yandex.net/i?id=b31c7ca2716b9a43685405b93363af88399ab250-5897285-images-thumbs&n=13',
-      quantity: 4,
-   },
-   {
-      id: '312',
-      name: 'Latte',
-      price: 3.5,
-      image: 'https://avatars.mds.yandex.net/i?id=96f412f251ef5a31845df616dcbbd235623d68fa-10414202-images-thumbs&n=13',
-      quantity: 1,
-   },
-]
-
 interface CartItem {
    id: string
    name: string
@@ -32,7 +15,7 @@ interface CartState {
 }
 
 const initialState: CartState = {
-   items: [...defaultItems], //?=> This will be an array of meals added to the cart
+   items: [], //?=> This will be an array of meals added to the cart
    totalPrice: 0,
    totalQuantity: 0,
 }

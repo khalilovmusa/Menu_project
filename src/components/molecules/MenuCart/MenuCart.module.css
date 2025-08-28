@@ -1,17 +1,13 @@
-@media (max-width: 900px){
-  .main {
-    width: 90%;
-  }
-
-  .list_wrapper {
-    margin-bottom: 45%;
-  }
-}
-
 .main { 
   width: 35%;
   position: absolute;
   top: 0;
   color: #1e1e1e;
   justify-content: center;
+}
+
+@media (max-width: 900px){
+  .main {
+    width: 90%;
+  }
 }

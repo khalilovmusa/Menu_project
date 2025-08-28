@@ -8,7 +8,7 @@
 
 .list_wrapper {
   list-style: none;
-  margin-bottom: 30%;
+  margin-bottom: 35%;
   padding: 10px;
 }
 
@@ -73,5 +73,9 @@
 @media (max-width: 900px){
   .main {
     width: 90%;
+  }
+
+  .list_wrapper {
+    margin-bottom: 45%;
   }
 }

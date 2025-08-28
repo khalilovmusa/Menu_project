@@ -7,7 +7,7 @@ import { unslugify } from 'utils/unslugify'
 import { menuData } from '@store/helper/mainCategories.ts/menuData'
 import MenuHeader from '@components/molecules/MenuHeader/MenuHeader'
 import plus_icon from '@assets/plus-lg.svg'
-import { addItem } from '@store/slices/orderSlice'
+import { dispatchCartAction } from 'utils/dispatchCartAction'
 
 import styles from './CategoryMeals.module.css'
 
@@ -42,14 +42,7 @@ const CategoryMeals: React.FC = () => {
                      <button
                         className={styles.add_meal_btn}
                         onClick={() => {
-                           const cartItem = {
-                              id: meal.id,
-                              name: meal.name,
-                              price: meal.price,
-                              image: meal.image,
-                              quantity: 1,
-                           }
-                           dispatch(addItem(cartItem))
+                           dispatchCartAction(dispatch, meal, 'add')
                         }}
                      >
                         <img className={styles.add_meal_icon} src={plus_icon} />

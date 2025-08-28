@@ -2,7 +2,7 @@ import { addItem, deleteItem, removeItem } from '@store/slices/orderSlice'
 import type { AppDispatch } from '@store/store'
 
 interface CartItemBase {
-   id: string
+   id: string | number
    name: string
    price: number
    image: string

@@ -2,6 +2,7 @@
    width: 35%;
    position: absolute;
    top: 0;
+   color: #1e1e1e;
 }
 
 .list_wrapper { 
@@ -42,6 +43,7 @@
 
 .meal_price {
    font-size: 18px;
+   font-weight: 500;
 }
 
 .add_meal_btn {
@@ -52,10 +54,12 @@
    height: 30px;
    background: #fff;
    cursor: pointer;
+
+   transition: transform 0.3s ease;
 }
 
-.add_meal_icon {
-   
+.add_meal_btn:hover {
+   transform: rotateZ(35deg);
 }
 
 @media (max-width: 900px){

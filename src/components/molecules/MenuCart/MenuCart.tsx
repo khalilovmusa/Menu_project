@@ -5,9 +5,10 @@ import type { RootState } from '@store/store'
 import trash_red from '@assets/trash_red.svg'
 import plus from '@assets/plus-lg.svg'
 import minus from '@assets/minus.svg'
-import { addItem, deleteItem, removeItem } from '@store/slices/orderSlice'
+import { dispatchCartAction } from 'utils/dispatchCartAction'
 
 import MenuHeader from '../MenuHeader/MenuHeader'
+import OrderStats from '../OrderStats/OrderStats'
 
 import styles from './MenuCart.module.css'
 
@@ -38,16 +39,9 @@ const MenuCart = (): React.JSX.Element => {
                            <h2>{item.name}</h2>
                            <button
                               className={styles.trash_button}
-                              onClick={() => {
-                                 const cartItem = {
-                                    id: item.id,
-                                    name: item.name,
-                                    price: item.price,
-                                    image: item.image,
-                                    quantity: 1,
-                                 }
-                                 dispatch(deleteItem(cartItem))
-                              }}
+                              onClick={() =>
+                                 dispatchCartAction(dispatch, item, 'delete')
+                              }
                            >
                               <img
                                  alt="delete_btn"
@@ -60,16 +54,9 @@ const MenuCart = (): React.JSX.Element => {
                         <div className={styles.quantity_container}>
                            <button
                               className={styles.quantity_buttons}
-                              onClick={() => {
-                                 const cartItem = {
-                                    id: item.id,
-                                    name: item.name,
-                                    price: item.price,
-                                    image: item.image,
-                                    quantity: 1,
-                                 }
-                                 dispatch(removeItem(cartItem))
-                              }}
+                              onClick={() =>
+                                 dispatchCartAction(dispatch, item, 'remove')
+                              }
                            >
                               <img alt="decrease_btn" src={minus} />
                            </button>
@@ -78,16 +65,9 @@ const MenuCart = (): React.JSX.Element => {
                            </span>
                            <button
                               className={styles.quantity_buttons}
-                              onClick={() => {
-                                 const cartItem = {
-                                    id: item.id,
-                                    name: item.name,
-                                    price: item.price,
-                                    image: item.image,
-                                    quantity: 1,
-                                 }
-                                 dispatch(addItem(cartItem))
-                              }}
+                              onClick={() =>
+                                 dispatchCartAction(dispatch, item, 'add')
+                              }
                            >
                               <img alt="inecrease_btn" src={plus} />
                            </button>
@@ -96,30 +76,7 @@ const MenuCart = (): React.JSX.Element => {
                   </li>
                )
             })}
-            <div className={styles.order_stats_container}>
-               {totalQuantity > 0 ? (
-                  <>
-                     <div>
-                        <span>
-                           <p>Order:</p>
-                           <p>$ {totalPrice.toFixed(2)}</p>
-                        </span>
-                        <span>
-                           <p>Service fee(20%):</p>
-                           <p>$ {((totalPrice * 20) / 100).toFixed(2)}</p>
-                        </span>
-                     </div>
-                     <button className={styles.order_btn}>
-                        Place Order
-                     </button>{' '}
-                  </>
-               ) : (
-                  <>
-                     <p>Your cart is empty. Order something</p>
-                     <button>Go to the menu</button>
-                  </>
-               )}
-            </div>
+            <OrderStats totalPrice={totalPrice} totalQuantity={totalQuantity} />
          </ul>
       </div>
    )

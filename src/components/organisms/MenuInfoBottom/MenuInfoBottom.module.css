@@ -1,5 +1,4 @@
 .menu_cart_wrapper{
-    width: 100%;
     height: 150px;
 
     display: flex;
@@ -13,7 +12,7 @@
 
     border-radius: 30px;
     padding: 10px 8px;
-    margin-top: 1%;
+    margin-top: 2%;
 }
 
 .menu_text{
@@ -60,4 +59,22 @@
     position: absolute;
     right: 2%;
     bottom: 3%; 
+}
+
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  14%, 42% {
+    transform: scale(1.05);
+  }
+  28%, 70% {
+    transform: scale(1);
+  }
+}
+
+.menu_cart_wrapper {
+  animation: heartbeat 2.5s infinite;
+  transform-origin: center center;
 }

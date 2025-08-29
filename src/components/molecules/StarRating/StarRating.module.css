@@ -1,0 +1,17 @@
+.stars_wrapper{
+   margin-bottom: 3%;
+}
+
+.stars_header{
+   display: flex;
+   justify-content: center;
+}
+
+.active {
+   color: #fff700;
+  filter: drop-shadow(0 0 6px #fff700) drop-shadow(0 0 10px #fff700)
+}
+
+.inactive {
+   color: #000
+}

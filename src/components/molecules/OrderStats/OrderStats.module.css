@@ -1,0 +1,48 @@
+.order_stats_container {
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   left: 0;
+}
+
+.order_stats_container div span {
+   display: flex;
+   justify-content: space-between;
+}
+
+.order_btn {
+   border: none;
+   border-radius: 20px;
+   fill: #fff;
+   padding: 10px;
+
+   background: #9370DB;
+   color: #fff;
+   cursor: pointer;
+
+   width: 100%;
+}
+
+.empty_container {
+   text-align: center;
+}
+
+.empty_text {
+   font-size: 22px;
+   font-weight: 500;
+}
+
+.order_price,
+.order_fee {
+   font-weight: 500;
+   padding: 10px 8px;
+}
+
+.total_price {
+   display: flex;
+   justify-content: space-between;
+   border-top: 1px dashed lightgray;
+   padding: 10px 8px;
+   font-weight: 600;
+   font-size: 22px;
+}

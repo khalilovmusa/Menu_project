@@ -13,6 +13,8 @@ import CategoryDetail from '@components/organisms/CategoryDetail/CategoryDetail'
 import NotFoundPage from '@components/pages/NotFoundPage/NotFound'
 import CategoryMeals from '@components/organisms/CategoryMeals/CategoryMeals'
 import MenuCart from '@components/molecules/MenuCart/MenuCart'
+import AdminPage from '@components/pages/AdminPage/AdminPage'
+import LoginPage from '@components/pages/LoginPage/LoginPage'
 
 const App: FC = () => {
    return (
@@ -30,6 +32,8 @@ const App: FC = () => {
                <Route element={<MenuCart />} path="/cart" />
                <Route element={<MobileApp />} path="/mobile_app" />
                <Route element={<AboutUs />} path="/about_us" />
+               <Route element={<LoginPage />} path="login" />
+               <Route element={<AdminPage />} path="admin" />
                <Route element={<NotFoundPage />} path="*" />
             </Routes>
          </BrowserRouter>

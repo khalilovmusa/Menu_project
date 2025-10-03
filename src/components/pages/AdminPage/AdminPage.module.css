@@ -1,5 +1,34 @@
+:root {
+   margin: 0;
+   padding: 0;
+   width: 100%;
+}
+
 .adminpage_wrapper {
    font-size: 25px;
    color: #1e1e1e;
    font-weight: 600;
+
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+}
+
+.adminpage_sidebar {
+   display: flex;
+   
+   width: 20%;
+}
+
+.admin-age_main {
+   display: flex;
+   flex-direction: row;
+}
+
+/*! Will be removed */
+
+.admin_empty {
+   height: 220px;
+   width: 220px;
+   background-color: orangered;
 }

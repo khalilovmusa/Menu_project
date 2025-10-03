@@ -11,12 +11,21 @@
     background: #fff;
     color: black;
 }
-
+/*! Menu header*/
 .company_container{
     display: flex;
     flex-direction: row;
     width: 80%;
 }
+
+.company_name_wrapper {
+    height: 60px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+}
+
 .company_logo{
     border: none;
     border-radius: 50%;
@@ -27,12 +36,14 @@
 .company_name{
     font-size: 28px;
     font-weight: 600;
+    margin: 0;
 }
 
 .company_motto{
     color: gray;
     font-size: 15px;
     font-weight: 500;
+    margin: 0;
 }
 
 .company_second_logo{

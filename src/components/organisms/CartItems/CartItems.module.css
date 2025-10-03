@@ -1,6 +1,6 @@
 .list_wrapper {
    list-style: none;
-   margin-bottom: 35%;
+   margin-bottom: 45%;
    padding: 10px;
 }
 
@@ -12,8 +12,8 @@
 }
 
 .item_thumbnail {
-   height: 80px;
-   width: 80px;
+   height: 100px;
+   width: 100px;
    border-radius: 10px;
    object-fit: cover;
    margin-right: 10px;
@@ -21,14 +21,20 @@
 
 .item_info_container {
    width: 85%;
+   height: 20%;
    padding: 10px;
 }
 
 .item_name_del_container {
    display: flex;
    flex-direction: row;
-   align-items: space-between;
+   //align-items: space-between;
    justify-content: space-between;
+}
+
+.item_name {
+   margin: 0;
+   padding: 0;
 }
 
 .trash_button {
@@ -64,6 +70,10 @@
 
 @media (max-width: 900px){
    .list_wrapper {
-      margin-bottom: 45%;
+      margin-bottom: 65%;
+   }
+
+   .item_name {
+      font-size: 20px;
    }
 }

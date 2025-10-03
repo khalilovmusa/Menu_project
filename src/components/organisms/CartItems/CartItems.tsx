@@ -24,7 +24,7 @@ const CartItems = (): React.JSX.Element => {
                   />
                   <div className={styles.item_info_container}>
                      <div className={styles.item_name_del_container}>
-                        <h2>{item.name}</h2>
+                        <h2 className={styles.item_name}>{item.name}</h2>
                         <button
                            className={styles.trash_button}
                            onClick={() =>
@@ -38,7 +38,9 @@ const CartItems = (): React.JSX.Element => {
                            />
                         </button>
                      </div>
-                     <p>$ {item.price.toFixed(2)}</p>
+                     <p className={styles.item_price}>
+                        $ {item.price.toFixed(2)}
+                     </p>
                      <div className={styles.quantity_container}>
                         <button
                            className={styles.quantity_buttons}

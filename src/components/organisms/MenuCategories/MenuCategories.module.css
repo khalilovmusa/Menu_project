@@ -18,6 +18,7 @@
 
 .categories_wrapper {
   list-style: none;
+  padding: 0;
 }
 
 .category_item {
